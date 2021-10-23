@@ -12,11 +12,13 @@ const FILE_TO_CACHE = [
     '/manifest.json',
     '/icon-192x192.png',
     '/icon-512x512.png',
+    "/index.js",
+    "/db.js"
 
 ];
 
 
-//installation of service worker - a new 
+//installation of service worker -
 
 self.addEventListener("install", function (evt) {
     evt.waitUnil(
@@ -29,10 +31,12 @@ self.addEventListener("install", function (evt) {
 
         })
     );
-
+//instructions to brower to activate service worker once installation is complete
     console.log('Install');
     self.skipWaiting();
 });
+
+
 
 // // // retrieve assets from cache
 // // self.addEventListener("activate", function (evt) {
@@ -67,6 +71,10 @@ return
 }
 
  evt.respondWith(
-     
+    caches.match(evt.request).then (function (response) {
+        return response|| fetch(evt.request)
+    })
+
 )
 });
+
