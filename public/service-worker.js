@@ -1,7 +1,7 @@
 const { response } = require("express");
 
 console.log("Hello from service worker!")
-//Then write to following code after easing console.log
+//Then write the following code after easing console.log
 
 const data_cache ="dataCache"
 const cache_name = "cache-v1"
@@ -66,4 +66,7 @@ console.log(err)
 return
 }
 
+ evt.respondWith(
+     
+)
 });
