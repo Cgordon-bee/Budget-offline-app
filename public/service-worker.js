@@ -45,17 +45,17 @@ self.addEventListener("install", function (evt) {
 self.addEventListener("fetch", function (evt) {
 if (evt.request.url.includes("/api/")) {
     evt.respondWith(
-caches.open(data_cache).then(cache => {
-return fetch(evt.request).then(response =>{
-if (response.status===200){
-cache.put(evt.request.url, response.clone())
+        caches.open(data_cache).then(cache => {
+            return fetch(evt.request).then(response =>{
+            if (response.status===200){
+            cache.put(evt.request.url, response.clone())
 
 }
-return response
+return response;
 })
 .catch(err =>{
 
-return cache.match(evt.request)
+return cache.match(evt.request);
 
 })
 }

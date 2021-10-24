@@ -11,11 +11,11 @@ request.onupgradeneeded = function (event) {
 
 request.onsuccess = function (event) {
     console.log("open BudgetDB success ");
-    db = event.target.result;
+        db = event.target.result;
 
     if (navigator.onLine) {
         console.log("Online! ");
-        checkDatabase();
+            checkDatabase();
     }
 };
 
